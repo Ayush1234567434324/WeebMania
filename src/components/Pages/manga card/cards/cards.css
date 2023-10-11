@@ -1,0 +1,34 @@
+.manga-title-badges {
+  
+    color: #fff;
+    min-width:40px;
+    height:18px;
+    display:inline-block;
+    margin-right:3px;
+    border-width:1px;
+    border-radius:50px;
+    border-style:solid;
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    position: absolute;
+    top:0px;
+    left: 0px;
+  }
+
+  @media screen and (max-width:400px)
+  {
+    .card-img-top
+    {
+        height : 150px !important;
+     
+        width: 120px !important;
+    }
+    .card-container-top
+    {
+        height : 150px !important;
+     
+        width: 120px !important;
+    }
+  }
