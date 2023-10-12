@@ -11,11 +11,7 @@ export const Home = () => {
      <Videorender/>
      
      <Mangapage/>
-     <Mangapage/>
-     <Mangapage/>
-     <Mangapage/>
-     <Mangapage/>
-     <Mangapage/>
+     
      
     
      </>

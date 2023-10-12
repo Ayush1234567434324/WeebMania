@@ -1,24 +1,95 @@
+@keyframes name-of-animation {
+  0% {
+    left: 0;
+    opacity: 1;
+}
+25% {
+    left: 50px;
+    opacity: 1;
+}
+50% {
+    left: 0;
+    opacity: 0;
+}
+75% {
+    left: 50px;
+    opacity: 0.8;
+}
+100% {
+    left: 0;
+    opacity: 0;
+}
+  }
+
+
+  @keyframes fadeForLazyload {
+    0% {
+      opacity:.3
+    }
+    100% {
+      opacity:1
+    }
+  }
 .manga-title-badges {
   
-    color: #fff;
-    min-width:40px;
+    
+    min-width:80px;
     height:18px;
     display:inline-block;
     margin-right:3px;
     border-width:1px;
     border-radius:50px;
-    border-style:solid;
+    border-style:none;
     text-align:center;
     font-size:12px;
-    font-weight:700;
+    font-weight:1000;
     text-transform:uppercase;
     position: absolute;
     top:0px;
-    left: 0px;
+    left: -15px;
+  color: #fff;
+  animation: name-of-animation 5s infinite;
+  }
+
+  .card-img-top:hover
+  {
+
+
+    animation:fadeForLazyload .5s linear;
+    transition:transform .5s,filter .5s;
+    zoom:1;
+
   }
 
   @media screen and (max-width:400px)
-  {
+  {  @keyframes name-of-animation {
+    0% {
+      left: 0;
+      opacity: 1;
+  }
+  25% {
+      left: 20px;
+      opacity: 1;
+  }
+  50% {
+      left: 0;
+      opacity: 0;
+  }
+  75% {
+      left: 20px;
+      opacity: 0.8;
+  }
+  100% {
+      left: 0;
+      opacity: 0;
+  }
+    }
+
+    .manga-title-badges 
+    {
+      animation: name-of-animation 5s infinite !important;
+    }
+  
     .card-img-top
     {
         height : 150px !important;

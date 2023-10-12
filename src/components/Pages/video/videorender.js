@@ -18,7 +18,7 @@ export default function Videorender() {
         autoPlay
         muted
         onEnded={handleVideoEnded}
-        poster="logo192.png"
+        
       >
         <source src="tanjiro.mp4" type="video/mp4" />
         Sorry, your browser doesn't support videos.
