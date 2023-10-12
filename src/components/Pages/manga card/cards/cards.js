@@ -8,7 +8,7 @@ export default function Cards(props) {
     statusColor = '#e33b3b';
   } else if (props.status === 'Latest') {
     statusColor = 'rgb(255, 168, 0)';
-  } else if (props.status === 'Complete') {
+  } else if (props.status === 'Completed') {
     statusColor = '#3c64df';
   }
   else if(props.status === 'Legend')
@@ -23,7 +23,7 @@ export default function Cards(props) {
         <img className="card-img-top " src={props.artwork} alt="Card image cap" style={{ height: "238px", borderRadius: "20px", width: "175px" }} />
         <span className={`manga-title-badges ${props.status}`} style={{ background: statusColor }}>{props.status}</span>
       </div>
-      <div className='title_card' style={{ color: "white", fontSize: "15px", fontWeight: "600", textAlign: "center" }}>{props.title}</div>
+      <div className='title_card my-3' style={{ color: "white", fontSize: "15px", fontWeight: "600", textAlign: "center" }}>{props.title}</div>
     </div>
   );
 }

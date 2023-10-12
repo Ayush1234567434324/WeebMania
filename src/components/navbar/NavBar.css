@@ -145,8 +145,12 @@ color : #2f3640;
     left: 0px;
     opacity: 1;
     transition: all 0.5s ease;
-    z-index: -1;
+   
   }
+  .vegeta-logo{
+    z-index: 200;
+  }
+
   .nav-item .active {
     color: #eb3349;
     border: none;

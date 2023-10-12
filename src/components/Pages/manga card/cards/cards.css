@@ -50,17 +50,14 @@
   color: #fff;
   animation: name-of-animation 5s infinite;
   }
-
+  
   .card-img-top:hover
   {
 
 
     animation:fadeForLazyload .5s linear;
-    transition:transform .5s,filter .5s;
     transform: scale(1.1);
-    zoom:1;
-    overflow: hidden;
-
+     overflow:hidden;
   }
 
   @media screen and (max-width:400px)
