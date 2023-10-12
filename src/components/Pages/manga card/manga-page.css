@@ -15,9 +15,16 @@ justify-content: center !important;
   }
 
 
-  @media (min-width: 1360px) {
+  @media (min-width: 1353px) {
     .col-xl-2 {
       
-      width: 18%;
+      width: 20%;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .col-xl-2 {
+      
+      width: 16.6666%;
     }
   }
