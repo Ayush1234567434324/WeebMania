@@ -180,14 +180,17 @@ color : #2f3640;
 
 @media screen and (max-width: 620px) {
 .searchBox:hover > .searchInput {
-  width: 120px;
+  width: 200px;
  
 }
 }
 @media screen and (max-width: 526px)
 {
 
-
+  .searchBox:hover > .searchInput {
+    width: 160px;
+   
+  }
 
   .weeb-logo
   {
@@ -199,7 +202,13 @@ color : #2f3640;
     height: 100px !important;
   }
 }
-
+@media screen and (max-width: 480px)
+{
+  .searchBox:hover > .searchInput {
+    width: 140px;
+   
+  }
+}
 @media screen and (max-width: 400px) {
 
 
