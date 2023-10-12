@@ -3,3 +3,12 @@
   display: flex !important;
 justify-content: center !important;
 }
+
+
+
+@media (min-width: 1200px) {
+    .col-xl-2 {
+      
+      width: 17.9%;
+    }
+  }
