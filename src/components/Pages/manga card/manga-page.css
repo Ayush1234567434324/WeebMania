@@ -6,9 +6,18 @@ justify-content: center !important;
 
 
 
+
 @media (min-width: 1200px) {
     .col-xl-2 {
       
-      width: 17.9%;
+      width: 20%;
+    }
+  }
+
+
+  @media (min-width: 1353px) {
+    .col-xl-2 {
+      
+      width: 20%;
     }
   }
