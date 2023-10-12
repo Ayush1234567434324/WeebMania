@@ -15,7 +15,7 @@ justify-content: center !important;
   }
 
 
-  @media (min-width: 1353px) {
+  @media (min-width: 1360px) {
     .col-xl-2 {
       
       width: 18%;
