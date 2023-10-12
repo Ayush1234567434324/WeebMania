@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./cards/cards";
-
+import './manga-page.css'
 
 export const Mangapage = () => {
   const [mangaData, setMangaData] = useState([]);

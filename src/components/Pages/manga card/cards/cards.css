@@ -67,7 +67,7 @@
       opacity: 1;
   }
   25% {
-      left: 20px;
+      left: 30px;
       opacity: 1;
   }
   50% {
@@ -75,7 +75,7 @@
       opacity: 0;
   }
   75% {
-      left: 20px;
+      left: 30px;
       opacity: 0.8;
   }
   100% {
@@ -91,6 +91,23 @@
   
     .card-img-top
     {
+        height : 200px !important;
+     
+        width: 150px !important;
+    }
+    .card-container-top
+    {
+      height : 200px !important;
+     
+      width: 150px !important;
+    }
+   
+  }
+
+  @media screen and (max-width:319px)
+  {
+    .card-img-top
+    {
         height : 150px !important;
      
         width: 120px !important;
@@ -101,4 +118,5 @@
      
         width: 120px !important;
     }
+
   }
