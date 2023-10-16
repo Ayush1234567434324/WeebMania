@@ -102,6 +102,39 @@ a{
 
 }
 
+
+@media screen and (max-width:550px)
+{
+
+
+    .SocialIcons a {
+        text-decoration: none;
+        padding: 7px;
+        border: 3px solid white;
+        margin: 10px;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+      }
+
+      .SocialIcons a i {
+        font-size: 24px;
+        color: #fdfdfd;
+        opacity: 0.9;
+        margin-top: 0px;
+        line-height: 1;
+      
+    }
+
+
+}
+
+
+
+
+
+
+
 @media screen and (max-width:400px)
 {
     a{
