@@ -50,8 +50,31 @@
   color: #fff;
   animation: name-of-animation 5s infinite;
   }
-  
  
+  .chapter
+  {
+    color: #fff;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .fa:hover
+  {
+      color: rgb(229, 13, 48) !important;
+  }
+  .chapter:hover
+  {
+    color: #dc3545 !important;
+  }
+  .star-eye-check
+  {
+    border: 1px solid #3f3f3f;
+  padding: 3px 10px;
+    padding-top: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 0 12px;
+  }
 
 
 
@@ -107,7 +130,10 @@
      
       width: 150px !important;
     }
-   
+    .title_card
+  {
+    font-size: 12px !important;
+  }
   }
 
   @media screen and (max-width:319px)
@@ -145,5 +171,8 @@
      
         width: 120px !important;
     }
-
+  .title_card
+  {
+    font-size: 12px !important;
+  }
   }

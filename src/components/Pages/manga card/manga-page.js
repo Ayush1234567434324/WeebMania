@@ -39,7 +39,7 @@ export const Mangapage = () => {
       <div className="manga-cards container " >
         <div className="row" style={{display:"flex",justifyContent:"center"}}>
           {mangaData.map((manga) => (
-            <div key={manga.id} className=" manga-card col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2   badge-pos-3 my-5 manga-check-card">
+            <div key={manga.id} className=" manga-card col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2   badge-pos-3  manga-check-card" style={{marginTop:'12rem'}}>
               <Cards
                 title={manga.title}
                 artwork={manga.artwork}

@@ -2,8 +2,9 @@ import React from "react";
 
 export const Blog = () => {
   return (
-    <div>
-      <h1>Blog</h1>
+    <div style={{background:'white'}}>
+      
+      <span class="fa-solid fa-star"></span>
     </div>
   );
 };
