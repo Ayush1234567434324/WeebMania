@@ -85,7 +85,7 @@
   height: 60px;
   border-radius: 40px;
   padding: 10px;
-
+   z-index: 999999;
 }
 
 .searchBox:hover > .searchInput {
@@ -110,6 +110,7 @@ color : #2f3640;
   align-items: center;
   transition: 0.4s;
   border: none;
+
 }
 
 .searchInput {

@@ -24,6 +24,10 @@ export default function Cards(props) {
         <span className={`manga-title-badges ${props.status}`} style={{ background: statusColor }}>{props.status}</span>
       </div>
       <div className='title_card my-3' style={{ color: "white", fontSize: "15px", fontWeight: "600", textAlign: "center" }}>{props.title}</div>
+      <div style={{display:"flex",justifyContent:"center"}}>
+        <div ><i class="icon ion-md-thumbs" style={{background:'red'}}></i></div>
+        <div><i class="icon ion-md-eye" style={{background:'red'}}></i></div>
+      </div>
     </div>
   );
 }
