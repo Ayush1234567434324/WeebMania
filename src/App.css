@@ -19,21 +19,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background color of the scrollbar track */
+  background: #f1f1f100; /* Background color of the scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Background color of the scrollbar thumb */
+  background: #f0465a; /* Background color of the scrollbar thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Change color on hover */
+  background: #f0465a; /* Change color on hover */
 }
 
 /* Mozilla Firefox (may not work in all versions) */
 * {
   scrollbar-width: thin; /* "auto" will show the native scrollbar (if available) */
-  scrollbar-color: rgb(95, 93, 93) #060606;
+  scrollbar-color: #f0465a #06060600;
+ 
 }
 
 *::-webkit-scrollbar {
