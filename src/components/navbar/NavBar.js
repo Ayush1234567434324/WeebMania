@@ -73,7 +73,7 @@ function NavBar() {
             <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
           </div>
         </div>
-        <li> <div className="searchBox" style={{top:closeClick ? "0%" :"50%"}}>
+        <li> <div className="searchBox" style={{top:click ? "0%" :"50%"}}>
 
 <input className="searchInput"type="text" name="" placeholder="Search"/>
 <button className="searchButton" href="#">
