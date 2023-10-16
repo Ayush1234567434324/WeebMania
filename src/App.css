@@ -1,11 +1,42 @@
 * {
   margin: 0;
   padding: 0;
+ 
+ 
 }
+
+
 
 body {
   background-color: #06121e;
   font-family: poppins,sans-serif;
+
 }
 
+/* WebKit-based browsers like Chrome and Safari */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Background color of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change color on hover */
+}
+
+/* Mozilla Firefox (may not work in all versions) */
+* {
+  scrollbar-width: thin; /* "auto" will show the native scrollbar (if available) */
+  scrollbar-color: rgb(95, 93, 93) #060606;
+}
+
+*::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
 

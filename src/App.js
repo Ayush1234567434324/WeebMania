@@ -5,6 +5,7 @@ import { Home } from "./components/Pages/Home";
 import { About } from "./components/Pages/About";
 import { Blog } from "./components/Pages/Blog";
 import { Genre} from "./components/Pages/genre";
+import Footer from "./components/Footer/footer";
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
             <Route path="/genre" element={<Genre/>} />
           </Routes>
         </div>
+        <div style={{marginTop:'20rem'}}></div>
+      <Footer/>
+      
       </Router>
   </>
   );

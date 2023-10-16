@@ -4,7 +4,21 @@
 justify-content: center !important;
 }
 
+.font-heading
+{
+  position: relative;
+  top: 10rem;
 
+}
+
+.h4 h1{
+  font-weight: 600;
+ font-size: 25px !important;
+  color: #fff;
+  border-bottom: 2px solid #eb3349;
+  width: 15rem;
+  line-height: 1.4em;
+}
 
 
 @media (min-width: 1200px) {

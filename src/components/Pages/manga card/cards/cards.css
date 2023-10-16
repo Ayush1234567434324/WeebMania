@@ -77,7 +77,10 @@
   }
 
 
-
+  .fa-star::before
+  {
+  line-height: 18px;
+  }
 
 
   .card-img-top:hover
@@ -135,7 +138,7 @@
     font-size: 12px !important;
   }
   }
-
+    
   @media screen and (max-width:319px)
   {  @keyframes name-of-animation {
     0% {
