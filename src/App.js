@@ -6,6 +6,7 @@ import { About } from "./components/Pages/About";
 import { Blog } from "./components/Pages/Blog";
 import { Genre} from "./components/Pages/genre";
 import Footer from "./components/Footer/footer";
+import Read from "./components/Pages/manga card/read/read";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/genre" element={<Genre/>} />
+            <Route path="/read" element={<Read/>}/>
           </Routes>
         </div>
         <div style={{marginTop:'20rem'}}></div>
