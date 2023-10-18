@@ -89,9 +89,13 @@ tr {
     margin-left: -12px;
 
 }
+.gap-c
+{
+    display: flex;
+    gap:25px;
+}
 
-
-@media screen and (max-width:1200px)
+@media screen and (max-width:1250px)
 {
 
     .box2
@@ -107,7 +111,7 @@ tr {
   .box1 {
 
     width: auto;
-    height: 320px;
+    height: auto;
     background-color: rgba(21, 24, 28, 0.5);
     border-radius: 25px;
     
@@ -122,11 +126,32 @@ tr {
   .box1{
     width: auto;
   }
- 
+   .status
+   {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    
+
+   }
   .details{
     gap: 30px;
     flex-direction: column;
     justify-content: center;
   }
+  .bookmark
+  {
+    justify-content: center;
+    margin-top: 20px;
+  }
+ .status-flex
+ {
+    margin-top: -35px;
+ }
+ .follow
+ {
+    width: 50px;
+ }
 
 }

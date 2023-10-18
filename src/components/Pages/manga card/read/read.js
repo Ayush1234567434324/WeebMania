@@ -63,14 +63,10 @@ export default function Read() {
 
 
             <div className="status">
-              <table>
-                <tr>
-                  <td>Published By</td>
-                  <td>Updating</td>
-                </tr>
-                <tr>
-                  <td>Status</td>
-                  <td>OnGoing</td>
+              <table className='status-flex'>
+                <tr className='status-gap gap-c'>
+                  <td className='pb follow'>Follow</td>
+                  <td className='pb pb-c'>@Weebmania</td>
                 </tr>
               </table>
               <div className='bookmark mx-3' style={{ display: 'flex', flexDirection: 'row', gap: '40px' }}>
