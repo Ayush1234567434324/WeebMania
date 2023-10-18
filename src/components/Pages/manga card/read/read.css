@@ -4,15 +4,28 @@
   
    
     
-    height: 79.5vh;
+  
     background:url('tnlycover.jpg');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 30px;
    
 }
 .status
 {
     margin-top: -50px;
 }
+.summary-content,.tag-content
+{
+    
+    padding-top:10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .box {
     display: flex;
   
@@ -155,3 +168,4 @@ tr {
  }
 
 }
+

@@ -1,15 +1,41 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom';
+import React,{useEffect,useState } from 'react'
+import { useLocation} from 'react-router-dom';
+
 import './read.css'
 
 export default function Read() {
-
+  const apiUrl = 'https://universe-tau.vercel.app/api/Dragon-Ball-Super/manga';
   const location = useLocation();
-  const data = location.state.info;
+  const existingData = location.state ? location.state.info : null;
+  const [data, setData] = useState(existingData);
+ console.log(location.pathname)
+  useEffect(() => {
+    if (data === null || data === undefined) {
+      // Data is null or undefined, so fetch it from the API
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((newData) => {
+          // Update the state with the fetched data
+          setData(newData);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Error:', error);
+        });
+    }
+  }, [data]); // Add data as a dependency to prevent multiple API requests
 
+  // The rest of your component logic
 
+   
   return (
-    <div>
+    <>
+    
     <div className="bg">
       <div className="box">
 
@@ -93,9 +119,27 @@ export default function Read() {
 
         </div>
       </div>
-    </div>
+      <div className='summary-content'>
 
-  </div>
+        <div className='h4 summary' style={{width:'115px'}}>Summary</div>
+        <div style={{color:'#fff'}}>{data.description}</div>
+        </div>
+        <div className='tag-content'>
+
+        <div className='h4 summary' style={{width:'60px'}}>Tags</div>
+        <div style={{ color: '#fff' }}>
+  {data.genre.map((genre, index) => (
+    <span key={index}>
+      #{genre}&nbsp;&nbsp;&nbsp;&nbsp;
+      {index < data.genre.length - 1 && ' '}
+    </span>
+  ))}
+</div>
+
+        </div>
+    </div>
+    
+   </>
   )
 }
 /* <div className="btn">

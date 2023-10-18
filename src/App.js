@@ -5,13 +5,15 @@ import { Home } from "./components/Pages/Home";
 import { About } from "./components/Pages/About";
 import { Blog } from "./components/Pages/Blog";
 import { Genre} from "./components/Pages/genre";
-import Footer from "./components/Footer/footer";
+
 import Read from "./components/Pages/manga card/read/read";
+import Footer from "./components/Footer/footer";
 
 
 function App() {
   return (
     <>
+ 
       <Router>
         <NavBar />
 
@@ -21,13 +23,14 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/genre" element={<Genre/>} />
-            <Route path="/read" element={<Read/>}/>
+            <Route path="/:title/read" element={<Read/>}/>
           </Routes>
         </div>
-        <div style={{marginTop:'20rem'}}></div>
-      <Footer/>
-      
+        <div style={{marginTop:'20rem'}}></div>  
+    <Footer/>
+     
       </Router>
+     
   </>
   );
 }
