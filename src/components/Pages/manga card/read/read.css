@@ -1,0 +1,127 @@
+
+
+.bg {
+  
+   
+    
+    height: 79.5vh;
+    background:url('tnlycover.jpg');
+    background-size: cover;
+   
+}
+.status
+{
+    margin-top: -50px;
+}
+.box {
+    display: flex;
+  
+    padding-top:6%;
+    margin-left: 10%;
+    margin-right: 10%;
+   
+    gap: 20px;
+}
+
+.anime-image-container{
+    height: 320px;
+    width: 224px;
+    
+    border-radius: 25px;
+  
+}
+
+.box1 {
+
+    width: 1200px;
+    height: 320px;
+    background-color: rgba(21, 24, 28, 0.5);
+    border-radius: 25px;
+    
+
+}
+
+.box2 {
+    border-radius: 25px;
+    
+}
+
+
+
+
+
+p {
+    color: aliceblue;
+}
+
+
+
+
+
+th ,td {
+    padding: 8px;
+  
+}
+
+tr {
+    color: #f2f2f2;
+}
+
+.details {
+    
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+    gap: 35px;
+}
+
+
+
+
+
+.btn-text {
+ 
+   
+    color: rgb(253, 253, 253);
+    background: rgb(238, 83, 83);
+    font-size: 15px;
+    border-radius: 10px;
+    margin-left: -12px;
+
+}
+
+
+@media screen and (max-width:1200px)
+{
+
+
+
+  .box
+  {
+    flex-direction: column;
+  }
+  .box1 {
+
+    width: auto;
+    height: 320px;
+    background-color: rgba(21, 24, 28, 0.5);
+    border-radius: 25px;
+    
+
+}
+
+}
+
+
+@media screen and (max-width:1000px)
+{
+  .box1{
+    width: auto;
+  }
+  .details{
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}

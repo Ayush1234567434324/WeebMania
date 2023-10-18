@@ -28,7 +28,7 @@ export const Mangapage = () => {
       });
   }, []);
 
-
+console.log(mangaData)
 
 
   
@@ -38,7 +38,7 @@ export const Mangapage = () => {
      <>
       <div className="manga-cards container " >
       <div class="font-heading">
-<div class="h4"><h1>LATEST RELEASES</h1></div>
+<h1 class="h4">LATEST RELEASES</h1>
 </div>
         <div className="row" style={{display:"flex",justifyContent:"center"}}>
           {mangaData.map((manga) => (
@@ -49,6 +49,7 @@ export const Mangapage = () => {
                 artist={manga.artist}
                 description={manga.description}
                 status={manga.status}
+                data = {manga}
 
               />
             </div>

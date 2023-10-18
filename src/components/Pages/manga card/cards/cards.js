@@ -14,11 +14,12 @@ export default function Cards(props) {
   {
     statusColor = 'rgb(43, 210, 43)';
   }
-  
+  console.log(props.data)
 
   return (
     <div className='card-container-top' style={{ width: "175px", borderRadius: "50px", outline: "none", border: "none", height: "238px" }} >
-      <NavLink exact to='/read'>
+     <NavLink to="/read" state={{ info:props.data }}>
+
       <div  className="position-relative">
         <img className="card-img-top " src={props.artwork} alt="Card image cap" style={{ height: "238px", borderRadius: "20px", width: "175px" }} />
         
