@@ -14,7 +14,7 @@ export default function Cards(props) {
   {
     statusColor = 'rgb(43, 210, 43)';
   }
-  const formattedTitle = props.title.replace(/ /g, '-');
+  const formattedTitle = props.title.replace(/ /g, '').toLowerCase();
 
 
 

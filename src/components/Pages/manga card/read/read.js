@@ -4,14 +4,24 @@ import { useLocation} from 'react-router-dom';
 import './read.css'
 
 export default function Read() {
-  const apiUrl = 'https://universe-tau.vercel.app/api/Dragon-Ball-Super/manga';
+  
   const location = useLocation();
+ 
+  const pathParts =   window.location.href;
+  console.log(pathParts)
+  const Part = pathParts.split('/')
+  const firstPartOfPath = location.pathname.split('/')[1]
+  .replace(/%20/g, '') // Replace space (URL-encoded as %20)
+  .replace(/-/g, '')   // Replace hyphens
+  .replace(/_/g, ''); 
+  console.log(firstPartOfPath)
   const existingData = location.state ? location.state.info : null;
   const [data, setData] = useState(existingData);
- console.log(location.pathname)
+  const apiUrl = `https://universe-tau.vercel.app/api/${firstPartOfPath}/manga`;
   useEffect(() => {
     if (data === null || data === undefined) {
       // Data is null or undefined, so fetch it from the API
+    
       fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
@@ -35,7 +45,7 @@ export default function Read() {
    
   return (
     <>
-    
+   {data? 
     <div className="bg">
       <div className="box">
 
@@ -137,7 +147,7 @@ export default function Read() {
 </div>
 
         </div>
-    </div>
+    </div>:null}
     
    </>
   )
