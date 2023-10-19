@@ -15,8 +15,8 @@ function NavBar() {
         <div className="nav-container">
           <NavLink  className="nav-logo" exact to="/">
           <div style={{ display: "flex" }}>
-  <img className="vegeta-logo" src="vegeta.png" style={{ height: "8rem", width: "auto",marginTop:"7.8rem" }} />
-  <img className="weeb-logo" src="weebmania.png" style={{ height: "20rem", width: "auto",marginTop:"4rem",opacity:closeClick?"0":"1" }} />
+  <img className="vegeta-logo" src="https://i.imgur.com/hCtqhTz.png" style={{ height: "8rem", width: "auto",marginTop:"7.8rem" }} />
+  <img className="weeb-logo" src="https://i.imgur.com/rb1dKK8.png" style={{ height: "20rem", width: "auto",marginTop:"4rem",opacity:closeClick?"0":"1" }} />
 </div>
 
 

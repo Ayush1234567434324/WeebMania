@@ -4,9 +4,12 @@ import { useLocation} from 'react-router-dom';
 import './read.css'
 
 export default function Read() {
-  
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // You can use 'auto' for instant scrolling or 'smooth' for smooth scrolling
+  });
   const location = useLocation();
- 
+   
   const pathParts =   window.location.href;
   console.log(pathParts)
   const Part = pathParts.split('/')
