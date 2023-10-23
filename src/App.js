@@ -8,15 +8,32 @@ import { Genre} from "./components/Pages/genre";
 
 import Read from "./components/Pages/manga card/read/read";
 import Footer from "./components/Footer/footer";
+import Login from "./components/Login/login";
 
 
 function App() {
+
+const x=1;
+
+
+
+
   return (
     <>
+    {x?
+    <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes> 
+     
+      </Router>
+
+
+    :
  
       <Router>
         <NavBar />
-
+         
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -30,7 +47,7 @@ function App() {
     <Footer/>
      
       </Router>
-     
+}
   </>
   );
 }

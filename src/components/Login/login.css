@@ -1,0 +1,40 @@
+video
+{
+    width: 1550px !important;
+   
+}
+.btn:hover
+{
+    background-color: rgb(37, 45, 122) !important;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+
+@media (max-width: 800px)
+{
+
+    .vegeta-bhai
+    {
+     opacity: 0 !important;
+    }
+   
+
+}
+@media (max-width: 700px)
+{
+    .weeb-bhai
+    {
+        height: 200px !important;
+        top:-50px !important;
+    }
+    
+}
+
+
+
+
+
+
+

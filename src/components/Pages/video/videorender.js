@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-export default function Videorender() {
+export default function Videorender(props) {
   const videoRef = useRef(null);
 
   const handleVideoEnded = () => {
@@ -17,10 +17,11 @@ export default function Videorender() {
         width="100%"
         autoPlay
         muted
+        playsInline
         onEnded={handleVideoEnded}
         
       >
-        <source src="tanjiro.mp4" type="video/mp4" />
+        <source src={props.video} type="video/mp4" />
         Sorry, your browser doesn't support videos.
       </video>
     </div>

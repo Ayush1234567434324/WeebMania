@@ -73,7 +73,7 @@ function NavBar() {
             <i className={click ? "fa fa-times" : "fa fa-bars"} onClick={handlecloseClick}></i>
           </div>
         </div>
-        <li> <div className="searchBox" style={{top:0}}>
+        <li> <div className="searchBox" style={window.innerWidth <= 960 ? click? { top: 0 } : { top: '50px' }:{ top: '50px' }}>
 
 <input className="searchInput"type="text" name="" placeholder="Search"/>
 <button className="searchButton" href="#">

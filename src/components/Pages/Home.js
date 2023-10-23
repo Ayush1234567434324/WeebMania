@@ -10,7 +10,7 @@ export const Home = () => {
   return (
      <>
      
-     <Videorender/>
+     <Videorender video={'tanjiro.mp4'}/>
      
      <Mangapage/>
    
