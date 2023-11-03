@@ -83,13 +83,7 @@ export default function Login() {
           if (response.ok) {  
            
           
-            const userInfoCookie = Cookies.get('userInfo');
-            if (userInfoCookie) {
-               console.log(1);
-            } else {
-              console.log('userInfo cookie not found');
-            }
-
+         console.log(1)
 
 
         
