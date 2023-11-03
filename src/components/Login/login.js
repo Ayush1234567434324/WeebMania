@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import Cookies from 'js-cookie';
+
 import './login.css'
 import OtpInput from 'react-otp-input'
 import { Videorender2 } from '../Pages/video/videorender';
@@ -36,7 +36,7 @@ export default function Login() {
   {
       setClick(!Click);
       setCounter(60);
-      const serverEndpoint = 'http://localhost:8000/api/send-email'; 
+      const serverEndpoint = 'https://universe-tau.vercel.app/api/send-email'; 
 
       fetch(serverEndpoint, {
         method: 'POST',
@@ -67,7 +67,7 @@ export default function Login() {
 
   useEffect(() => {
     if (otp.length === 5) {
-      const serverEndpoint = 'http://localhost:8000/api/verify'; 
+      const serverEndpoint = 'https://universe-tau.vercel.app/api/verify'; 
 
       fetch(serverEndpoint, {
         method: 'POST',
@@ -85,11 +85,7 @@ export default function Login() {
           
             const userInfoCookie = Cookies.get('userInfo');
             if (userInfoCookie) {
-              console.log('userInfoCookie:', userInfoCookie);
-
-              // You can also parse the userInfoCookie if needed
-              const userInfo = JSON.parse(userInfoCookie);
-              console.log('userInfo:', userInfo);
+               console.log(1);
             } else {
               console.log('userInfo cookie not found');
             }
