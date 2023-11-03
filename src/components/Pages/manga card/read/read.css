@@ -10,12 +10,42 @@
     background-repeat: no-repeat;
     background-position-y: 30px;
    
+   
 }
+.fixed_header {
+  
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  .fixed_header tbody {
+ 
+  
+    overflow: auto;
+  
+  }
+  
+  .fixed_header thead {
+    background: black;
+    color: #fff;
+  }
+
+  
+
+
+
+
+
+  .fixed_header th,
+  .fixed_header td {
+    padding: 5px;
+    text-align: center;
+  
+  }
 .status
 {
     margin-top: -50px;
 }
-.summary-content,.tag-content
+.summary-content,.tag-content,.chapter-content
 {
     
     padding-top:10%;
@@ -107,6 +137,9 @@ tr {
     display: flex;
     gap:25px;
 }
+
+
+
 
 @media screen and (max-width:1250px)
 {

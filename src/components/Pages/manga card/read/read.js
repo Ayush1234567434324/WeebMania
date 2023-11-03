@@ -4,10 +4,7 @@ import { useLocation} from 'react-router-dom';
 import './read.css'
 
 export default function Read() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // You can use 'auto' for instant scrolling or 'smooth' for smooth scrolling
-  });
+ 
   const location = useLocation();
    
   const pathParts =   window.location.href;
@@ -41,11 +38,26 @@ export default function Read() {
           console.error('Error:', error);
         });
     }
+  
+ 
+
+
+
   }, [data]); // Add data as a dependency to prevent multiple API requests
 
   // The rest of your component logic
+ 
+  setTimeout(function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, 20);
+   
+  
 
    
+ 
   return (
     <>
    {data? 
@@ -148,8 +160,27 @@ export default function Read() {
     </span>
   ))}
 </div>
-
         </div>
+        <div className='chapter-content'>
+<div className='h4 summary' style={{width:'100px'}}>Chapter</div>
+<table class="fixed_header" style={{background: "rgb(8 17 29)", borderRadius: '10px',boxShadow: '0 2px 5px rgb(0 0 0 / 50%)'}}>
+      <thead>
+        <tr>
+          <th>Col 1</th>
+          <th>Col 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+</div>
+
     </div>:null}
     
    </>

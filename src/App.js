@@ -22,10 +22,11 @@ const x=1;
     <>
     {x?
     <Router>
+       <div className="pages">
           <Routes>
             <Route path="/login" element={<Login />} />
           </Routes> 
-     
+          </div>
       </Router>
 
 

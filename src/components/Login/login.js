@@ -1,8 +1,15 @@
 import React, { useState,useEffect } from 'react';
-import Videorender from '../Pages/video/videorender';
+import Cookies from 'js-cookie';
 import './login.css'
 import OtpInput from 'react-otp-input'
+import { Videorender2 } from '../Pages/video/videorender';
 export default function Login() {
+
+
+  const [email, setEmail] = useState('');
+
+
+
   const divStyle = {
     backgroundColor: '#06121e',
     width: '100%',
@@ -29,7 +36,25 @@ export default function Login() {
   {
       setClick(!Click);
       setCounter(60);
+      const serverEndpoint = 'http://localhost:8000/api/send-email'; 
 
+      fetch(serverEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email }), // Replace with the actual email
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log('Email sent successfully');
+          } else {
+            console.error('Error sending email');
+          }
+        })
+        .catch((error) => {
+          console.error('Network error:', error);
+        });
   }
   const tick =()=>
   {
@@ -39,10 +64,63 @@ export default function Login() {
     const timer = Click ? 60 : (counter > 0 && setInterval(() => setCounter(counter - 1), 1000));
     return () => clearInterval(timer);
   }, [counter, Click]);
+
+  useEffect(() => {
+    if (otp.length === 5) {
+      const serverEndpoint = 'http://localhost:8000/api/verify'; 
+
+      fetch(serverEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email,
+          otp:otp
+         }), // Replace with the actual email
+      })
+        .then((response) => {
+          console.log(response)
+          if (response.ok) {  
+           
+          
+            const userInfoCookie = Cookies.get('userInfo');
+            if (userInfoCookie) {
+              console.log('userInfoCookie:', userInfoCookie);
+
+              // You can also parse the userInfoCookie if needed
+              const userInfo = JSON.parse(userInfoCookie);
+              console.log('userInfo:', userInfo);
+            } else {
+              console.log('userInfo cookie not found');
+            }
+
+
+
+        
+          } else {
+            console.error('not verified');
+          }
+        })
+        .catch((error) => {
+          console.error('Network error:', error);
+        });
+      
+            
+    }
+  }, [otp, email]);
+
+
+
+
+
+
+
+
   return (
     <>
       <div style={divStyle}>
-        <Videorender video={'login.mp4'} />
+        <Videorender2 video={'login.mp4'} />
+        
         <div style={blackOverlayStyle}></div>
         <img className='vegeta-bhai' src='vegeta.png' style={{position:'absolute',height:'150px',top:0,left:0,filter:'brightness(50%)'}}/>
         <img className='weeb-bhai' src='weebmania.png' style={{position:'absolute',height:'350px',top:'-100px',alignItems:'center'}}/>
@@ -50,7 +128,15 @@ export default function Login() {
         <div style={{ position: 'absolute', zIndex: 10000, background: '#000000b2', paddingLeft:'70px',paddingRight:'70px',paddingTop:'40px',paddingBottom:'40px',borderRadius:'2%',border:'2px solid #eb3349'}}>
   <div class="mb-3" style={{ position: 'relative',gap:'5px' }}>
     <label for="exampleInputEmail1" style={{ color: '#eb3349', fontWeight: 700 ,fontSize:'30px' }}>Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style={{background:'rgba(0, 0, 0, 0.65)',color:'white'}} />
+    <input
+      type="email"
+      className="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      style={{ background: 'rgba(0, 0, 0, 0.65)', color: 'white' }}
+      value={email} // Use the state variable as the value
+      onChange={(e) => setEmail(e.target.value)} // Handle changes to the email value
+    />
     <div id="emailHelp" class="form-text my-4" style={{ color: 'white', fontWeight: 400 }}>We'll never share your email with anyone else.</div>
     <button type="submit" class="btn btn-primary" style={{width:'100%',background:'#0f2133'}} onClick={click}>Submit</button>
   </div>
