@@ -36,7 +36,7 @@ export default function Login() {
   {
       setClick(!Click);
       setCounter(60);
-      const serverEndpoint = 'http://localhost:8000/api/send-email'; 
+      const serverEndpoint = 'https://universe-tau.vercel.app//api/send-email'; 
 
       fetch(serverEndpoint, {
         method: 'POST',
@@ -67,7 +67,7 @@ export default function Login() {
 
   useEffect(() => {
     if (otp.length === 5) {
-      const serverEndpoint = 'http://localhost:8000/api/verify'; 
+      const serverEndpoint = 'https://universe-tau.vercel.app//api/verify'; 
 
       fetch(serverEndpoint, {
         method: 'POST',
