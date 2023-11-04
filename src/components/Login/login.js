@@ -36,7 +36,7 @@ export default function Login() {
   {
       setClick(!Click);
       setCounter(60);
-      const serverEndpoint = 'https://universe-tau.vercel.app/api/send-email'; 
+      const serverEndpoint = 'http://localhost:8000/api/send-email'; 
 
       fetch(serverEndpoint, {
         method: 'POST',
@@ -67,7 +67,7 @@ export default function Login() {
 
   useEffect(() => {
     if (otp.length === 5) {
-      const serverEndpoint = 'https://universe-tau.vercel.app/api/verify'; 
+      const serverEndpoint = 'http://localhost:8000/api/verify'; 
 
       fetch(serverEndpoint, {
         method: 'POST',
@@ -79,15 +79,16 @@ export default function Login() {
          }), // Replace with the actual email
       })
         .then((response) => {
-          console.log(response)
-          if (response.ok) {  
-           
           
-         console.log(1)
+          if (response.ok) {
+            response.json().then(data => {
+              document.cookie = `userInfo=${JSON.stringify(data)}; max-age=604800; path=/`;
+              window.location.reload();
+            });
 
 
-        
-          } else {
+          }
+           else {
             console.error('not verified');
           }
         })
