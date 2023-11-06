@@ -14,7 +14,7 @@ export const Home = () => {
     
      
     <>
-     <NavBar/>
+    
      <Videorender video={'tanjiro.mp4'}/>
     
      <Mangapage/>
