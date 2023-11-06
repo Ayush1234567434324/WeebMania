@@ -42,7 +42,7 @@ return (
       <Router>
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login/>} />
             <Route path='/test' element={<GoogleDrivePDF/>}></Route>
           </Routes>
         </div>
