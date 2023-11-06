@@ -17,6 +17,7 @@ export default function Read() {
   console.log(firstPartOfPath)
   const existingData = location.state ? location.state.info : null;
   const [data, setData] = useState(existingData);
+  
   const apiUrl = `https://universe-tau.vercel.app/api/${firstPartOfPath}/manga`;
   useEffect(() => {
     if (data === null || data === undefined) {
@@ -163,7 +164,7 @@ export default function Read() {
         </div>
         <div className='chapter-content'>
 <div className='h4 summary' style={{width:'100px'}}>Chapter</div>
-<table class="fixed_header" style={{background: "rgb(8 17 29)", borderRadius: '10px',boxShadow: '0 2px 5px rgb(0 0 0 / 50%)'}}>
+<table className="fixed_header" style={{ background: "rgb(8 17 29)", borderRadius: '10px', boxShadow: '0 2px 5px rgb(0 0 0 / 50%)' }}>
       <thead>
         <tr>
           <th>Col 1</th>
@@ -171,11 +172,12 @@ export default function Read() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-
+        {data.url.map((item, index) => (
+          <tr key={index}>
+            <td>{index}</td>
+            <td>{item}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
 
