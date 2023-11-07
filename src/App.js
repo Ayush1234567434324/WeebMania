@@ -10,6 +10,7 @@ import Footer from "./components/Footer/footer";
 import Login from "./components/Login/login";
 import { useState ,useEffect} from "react";
 import GoogleDrivePDF from "./components/Pages/manga-pdf/mangaPDF";
+import Chapter from "./components/Pages/manga card/read/chapter/chapter";
 
 
 function App() {
@@ -43,7 +44,7 @@ return (
         <div className="pages">
           <Routes>
             <Route path="/" element={<Login/>} />
-            <Route path='/test' element={<GoogleDrivePDF/>}></Route>
+          
           </Routes>
         </div>
       </Router>
@@ -57,6 +58,7 @@ return (
             <Route path="/blog" element={<Blog />} />
             <Route path="/genre" element={<Genre />} />
             <Route path="/:title/read" element={<Read />} />
+            <Route path='/test' element={<GoogleDrivePDF/>}></Route>
           </Routes>
         </div>
         <div style={{ marginTop: '20rem' }}></div>

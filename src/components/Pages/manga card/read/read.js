@@ -1,5 +1,5 @@
 import React,{useEffect,useState } from 'react'
-import { useLocation} from 'react-router-dom';
+import { NavLink, useLocation} from 'react-router-dom';
 
 import './read.css'
 
@@ -165,19 +165,14 @@ export default function Read() {
         <div className='chapter-content'>
 <div className='h4 summary' style={{width:'100px'}}>Chapter</div>
 <table className="fixed_header" style={{ background: "rgb(8 17 29)", borderRadius: '10px', boxShadow: '0 2px 5px rgb(0 0 0 / 50%)' }}>
-      <thead>
-        <tr>
-          <th>Col 1</th>
-          <th>Col 2</th>
-        </tr>
-      </thead>
       <tbody>
-        {data.url.map((item, index) => (
-          <tr key={index}>
-            <td>{index}</td>
-            <td>{item}</td>
-          </tr>
-        ))}
+      {data.url.map((item, index) => (
+  <tr key={index}>
+    <NavLink to='/test' state={item}>
+      Chapter {data.url.length - index}
+    </NavLink>
+  </tr>
+))}
       </tbody>
     </table>
 

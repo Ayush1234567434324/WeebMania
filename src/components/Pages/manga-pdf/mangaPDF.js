@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Document, Page, pdfjs } from "react-pdf";
 import HTMLFlipBook from 'react-pageflip';
 import bg from './background.jpg'
+import { useLocation } from 'react-router-dom';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function GoogleDrivePDF() {
+  const location = useLocation();
+  const stateFromLink = location.state;
 
 
-
-
+console.log(stateFromLink)
   const divStyle = {
     backgroundImage: `url(${bg})`,
     minWidth: '315px',
@@ -54,7 +56,7 @@ function GoogleDrivePDF() {
 
   return (
     <div style={divStyle}>
-      <Document file='https://universe-tau.vercel.app/pdf' onLoadSuccess={onDocumentLoadSuccess}>
+      <Document file={`https://universe-tau.vercel.app/manga/pdf/${stateFromLink}`} onLoadSuccess={onDocumentLoadSuccess}>
      
         <HTMLFlipBook width={500}
             height={733}
