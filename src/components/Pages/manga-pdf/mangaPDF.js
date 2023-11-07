@@ -56,7 +56,7 @@ console.log(stateFromLink)
 
   return (
     <div style={divStyle}>
-      <Document file={`https://universe-tau.vercel.app/pdf`} onLoadSuccess={onDocumentLoadSuccess}>
+      <Document file={`https://universe-tau.vercel.app/pdf/${stateFromLink}`} onLoadSuccess={onDocumentLoadSuccess}>
      
         <HTMLFlipBook width={500}
             height={733}
