@@ -10,7 +10,8 @@ import Footer from "./components/Footer/footer";
 import Login from "./components/Login/login";
 import { useState ,useEffect} from "react";
 import GoogleDrivePDF from "./components/Pages/manga-pdf/mangaPDF";
-import Chapter from "./components/Pages/manga card/read/chapter/chapter";
+import LoginSignup from "./components/Login-Signup/LoginSignup";
+
 
 
 function App() {
@@ -43,8 +44,8 @@ return (
       <Router>
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Login/>} />
-          
+          <Route path='/' element={<LoginSignup/>}></Route>
+           
           </Routes>
         </div>
       </Router>

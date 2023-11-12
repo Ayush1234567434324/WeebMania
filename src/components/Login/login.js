@@ -2,23 +2,15 @@ import React, { useState,useEffect } from 'react';
 
 import './login.css'
 import OtpInput from 'react-otp-input'
-import { Videorender2 } from '../Pages/video/videorender';
-export default function Login() {
+;
+export default function Login(props) {
 
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(props.info.email);
 
 
 
-  const divStyle = {
-    backgroundColor: '#06121e',
-    width: '100%',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'fixed', // Set the div to a relative position
-  };
+
 
   const blackOverlayStyle = {
     position: 'absolute', // Position the black overlay absolutely
@@ -43,7 +35,13 @@ export default function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: email }), // Replace with the actual email
+        body: JSON.stringify({
+          name: props.info.name,
+          email: email,
+          password: props.info.password,
+          country: props.info.country,
+          mobile: props.info.mobile,
+        }), 
       })
         .then((response) => {
           if (response.ok) {
@@ -109,16 +107,19 @@ export default function Login() {
 
   return (
     <>
-      <div style={divStyle}>
-        <Videorender2 video={'login.mp4'} />
+   
         
         <div style={blackOverlayStyle}></div>
         <img className='vegeta-bhai' src='vegeta.png' style={{position:'absolute',height:'150px',top:0,left:0,filter:'brightness(50%)'}}/>
         <img className='weeb-bhai' src='weebmania.png' style={{position:'absolute',height:'350px',top:'-100px',alignItems:'center'}}/>
         {Click?
+        
         <div style={{ position: 'absolute', zIndex: 10000, background: '#000000b2', paddingLeft:'70px',paddingRight:'70px',paddingTop:'40px',paddingBottom:'40px',borderRadius:'2%',border:'2px solid #eb3349'}}>
+        
   <div class="mb-3" style={{ position: 'relative',gap:'5px' }}>
+
     <label for="exampleInputEmail1" style={{ color: '#eb3349', fontWeight: 700 ,fontSize:'30px' }}>Email address</label>
+
     <input
       type="email"
       className="form-control"
@@ -154,7 +155,6 @@ export default function Login() {
 
 }
 
-      </div>
     </>
   );
 }

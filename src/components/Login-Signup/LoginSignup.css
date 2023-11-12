@@ -1,0 +1,154 @@
+
+
+.container1{
+    display: flex;
+    flex-direction: column;
+    margin: 15%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    background: white;
+    padding-bottom: 30px;
+    border-radius: 25px;
+    border:3px solid #eb3349;
+
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:9px;
+    width:auto;
+    margin-top: 30px;
+}
+
+.text{
+    color:  #eb3349;
+    font-size:30px;
+    font-weight: 700;
+}
+
+.underline{
+    width: auto;
+    height: 6px;
+    background:  #eb3349;
+    border-radius: 9px;
+}
+
+
+
+.inputs{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+   
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    height: 50px;
+    background-color: rgb(234, 231, 231);
+    background: black;
+    color: #fff;
+    border-radius: 6px;
+    border:1px solid #fff;
+    
+  
+
+}
+
+.input input{
+    height: 50px;
+    width: auto;
+    margin: 2%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+
+}
+
+.forgot-password{
+    padding-left: 62px;
+    margin-top: 27px;
+    color:#797979;
+    font-size: 18px;
+}
+
+.forgot-password span{
+    color:  #eb3349;
+    cursor: pointer;
+}
+
+.submit-container{
+    display: flex;
+    gap:30px;
+    justify-content: center;
+
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 30px;
+    color: #fff;
+    background:  #eb3349;
+    border-radius: 50px;
+    font-size: 15px;
+    width:20%;
+    font-weight: 700;
+    cursor: pointer;
+    
+    border-radius: 10px !important;
+}
+
+.gray{
+    background:  #eb3349;
+    
+}
+
+svg{
+    margin:2.5%;
+}
+
+
+@media (max-width: 800px)
+{
+    .submit
+    {
+        font-size: 14px;
+        width: auto;
+    }
+    .input
+    {
+        width: 200px;
+    }
+
+    .container1
+    {
+        width:75% !important;
+    }
+
+
+}
+
+@media (max-width: 400px)
+{
+    .container1
+    {
+        width:100% !important;
+    }
+    .input
+    {
+        width: 180px;
+    }
+
+}
+
