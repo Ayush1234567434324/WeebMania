@@ -38,6 +38,8 @@ const LoginSignup = () => {
     // Log or use the input values for Sign Up
     console.log("User Info:", info);
     setAction('Sign Up');
+
+    if(action==='Sign Up')
     setotp(false) 
     // Additional logic for Sign Up
   };
