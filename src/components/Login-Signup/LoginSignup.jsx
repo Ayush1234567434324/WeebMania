@@ -121,6 +121,7 @@ const LoginSignup = () => {
                 name="name"
                 value={info.name}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
 
@@ -132,6 +133,7 @@ const LoginSignup = () => {
                 name="email"
                 value={info.email}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
 
@@ -143,6 +145,7 @@ const LoginSignup = () => {
                 name="country"
                 value={info.country}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
 
@@ -154,6 +157,7 @@ const LoginSignup = () => {
                 name="password"
                 value={info.password}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
 
@@ -165,6 +169,7 @@ const LoginSignup = () => {
                 name="mobile"
                 value={info.mobile}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
           </div>
@@ -179,6 +184,7 @@ const LoginSignup = () => {
                 name="email"
                 value={info.email}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
 
@@ -190,6 +196,7 @@ const LoginSignup = () => {
                 name="password"
                 value={info.password}
                 onChange={handleInputChange}
+                style={{width:'100%'}}
               />
             </div>
           </div>
