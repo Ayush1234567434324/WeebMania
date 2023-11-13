@@ -99,7 +99,6 @@ console.log(stateFromLink)
       </Document>
       </div>
       </div>
-      Any fullscreen content here
       </FullScreen>
       </div>
   );

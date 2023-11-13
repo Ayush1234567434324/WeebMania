@@ -9,6 +9,7 @@
   top: 0;
   z-index: 20;
   border-bottom: 2px solid #eb3349;
+  transition: top 0.5s ease, opacity 0.5s ease;
 }
 
 .nav-container {
@@ -125,6 +126,16 @@ color : #2f3640;
   line-height: 40px;
   width: 0px;
 
+}
+
+.visible {
+  top: 0;
+  opacity: 1;
+}
+
+.hidden {
+  top: -180px; /* Adjust based on your navbar height */
+opacity: 0;
 }
 
 

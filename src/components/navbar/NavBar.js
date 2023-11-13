@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
@@ -9,9 +9,35 @@ function NavBar() {
   const handlecloseClick=()=>{setcloseClick(!closeClick);
         setClick(!click);
   }
+
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 1);
+
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
+
+
+
+
+
+
   return (
     <>
-      <nav className="navbar">
+      <nav  className={`navbar ${visible ? 'visible' : 'hidden'}`}>
         <div className="nav-container">
           <div  className="nav-logo" >
           <div style={{ display: "flex"}}>
