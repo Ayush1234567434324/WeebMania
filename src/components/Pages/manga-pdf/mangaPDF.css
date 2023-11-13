@@ -1,0 +1,9 @@
+.hoverable {
+    opacity: 1; /* Set initial opacity to 1 (fully visible) */
+    transition: opacity 0.3s ease; /* Smooth transition for the opacity property */
+  }
+  
+  .hoverable:hover {
+    opacity: 0.7; /* Reduce opacity on hover (adjust as needed) */
+  }
+  

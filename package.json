@@ -18,6 +18,7 @@
     "pdfjs-dist": "^3.11.174",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-full-screen": "^1.1.1",
     "react-google-drive-picker": "^1.2.2",
     "react-otp-input": "^3.1.0",
     "react-pageflip": "^2.0.3",
