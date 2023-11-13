@@ -12,6 +12,9 @@ function GoogleDrivePDF(props) {
   const stateFromLink = location.state;
 
 
+ 
+
+
 console.log(stateFromLink)
   const divStyle = {
   
@@ -74,9 +77,20 @@ console.log(stateFromLink)
               };
             }, [scrollPosition,prevScrollPosition]);
 
-            console.log(scrollPosition)
+           
 
             const zIndex = scrollPosition >= prevScrollPosition ? 100 : (scrollPosition<=41)?100:10;
+
+            
+            if(prevScrollPosition===0 && scrollPosition===0)
+            setTimeout(function () {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            }, 20);
+          
+          
 
   return (
 
