@@ -8,7 +8,7 @@
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-  z-index: 20;
+ 
   border-bottom: 2px solid #eb3349;
   transition: opacity 0.5s ease, z-index 0.5s ease; /* Add transitions for opacity and z-index */
 }

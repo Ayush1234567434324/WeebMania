@@ -1,4 +1,4 @@
-import React, { useState,useCallback } from 'react';
+import React, { useState,useEffect} from 'react';
 import { Document, Page, pdfjs } from "react-pdf";
 import HTMLFlipBook from 'react-pageflip';
 import bg from './background.jpg'
@@ -59,13 +59,31 @@ console.log(stateFromLink)
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true} */
+            const [scrollPosition, setScrollPosition] = useState(0);
+            const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+          
+            const handleScroll = () => {
+              setPrevScrollPosition(scrollPosition);
+              setScrollPosition(window.scrollY);
+            };
+          
+            useEffect(() => {
+              window.addEventListener('scroll', handleScroll);
+              return () => {
+                window.removeEventListener('scroll', handleScroll);
+              };
+            }, [scrollPosition,prevScrollPosition]);
+
+            console.log(scrollPosition)
+
+            const zIndex = scrollPosition >= prevScrollPosition ? 100 : (scrollPosition<=41)?100:10;
 
   return (
 
 
     <div>
 
-         <div style={{position:'absolute',top:'10rem',right:'2rem',zIndex:100}}>
+         <div style={{position:'absolute',top:'10rem',right:'2rem',zIndex}}>
           <img height='40px' src='fullscreen.svg' onClick={handle.enter} class="hoverable"/>
       
       </div>
