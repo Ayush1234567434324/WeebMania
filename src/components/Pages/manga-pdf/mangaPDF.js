@@ -15,7 +15,7 @@ function GoogleDrivePDF(props) {
  
 
 
-console.log(stateFromLink)
+
   const divStyle = {
   
     width:'960px',
@@ -36,8 +36,9 @@ console.log(stateFromLink)
   
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
+    console.log(numPages)
   }
-
+   
   const pages = Array.from({ length: numPages }, (_, index) => (
     
     <div className="demoPage" key={index} >
@@ -52,6 +53,8 @@ console.log(stateFromLink)
 
   ));
 
+ 
+
 /* width={550}
             height={733}
             size=&quot;stretch&quot;
@@ -62,34 +65,14 @@ console.log(stateFromLink)
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true} */
-            const [scrollPosition, setScrollPosition] = useState(0);
-            const [prevScrollPosition, setPrevScrollPosition] = useState(0);
-          
-            const handleScroll = () => {
-              setPrevScrollPosition(scrollPosition);
-              setScrollPosition(window.scrollY);
-            };
-          
-            useEffect(() => {
-              window.addEventListener('scroll', handleScroll);
-              return () => {
-                window.removeEventListener('scroll', handleScroll);
-              };
-            }, [scrollPosition,prevScrollPosition]);
 
-           
-
-            const zIndex = scrollPosition >= prevScrollPosition ? 100 : (scrollPosition<=41)?100:10;
-
-            
-            if(prevScrollPosition===0 && scrollPosition===0)
             setTimeout(function () {
               window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
               });
             }, 20);
-          
+            
           
 
   return (
@@ -97,7 +80,7 @@ console.log(stateFromLink)
 
     <div>
 
-         <div style={{position:'absolute',top:'10rem',right:'2rem',zIndex}}>
+         <div style={{position:'absolute',top:'10rem',right:'2rem'}}>
           <img height='40px' src='fullscreen.svg' onClick={handle.enter} class="hoverable"/>
       
       </div>
@@ -135,14 +118,5 @@ console.log(stateFromLink)
       </div>
   );
 }
-/*width={550}
-            height={733}
-            size=&quot;stretch&quot;
-            minWidth={315}
-            maxWidth={1000}
-            minHeight={400}
-            maxHeight={1533}
-            maxShadowOpacity={0.5}
-            showCover={true}
-            mobileScrollSupport={true} */
+
 export default GoogleDrivePDF;

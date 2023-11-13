@@ -19,6 +19,7 @@ function App() {
 const [x,setx]=useState(0)
 
 
+
 useEffect(() => {
   const cookieValue = document.cookie
     .split('; ')
