@@ -65,7 +65,7 @@ console.log(stateFromLink)
 
     <div>
 
-         <div style={{position:'absolute',top:'10rem',right:'2rem'}}>
+         <div style={{position:'absolute',top:'10rem',right:'2rem',zIndex:10}}>
           <img height='40px' src='fullscreen.svg' onClick={handle.enter} class="hoverable"/>
       
       </div>
