@@ -41,7 +41,7 @@ function NavBar() {
         <div className="nav-container">
           <div  className="nav-logo" >
           <div style={{ display: "flex"}}>
-  <NavLink exact to="/" style={{height:'8rem'}} ><img className="vegeta-logo" src="https://i.imgur.com/hCtqhTz.png" style={{ height: "8rem", width: "auto",marginTop:"7.8rem" }} /></NavLink>
+  <NavLink exact to="/" ><img className="vegeta-logo" src="https://i.imgur.com/hCtqhTz.png" style={{ height: "8rem", width: "auto",marginTop:"7.8rem" }} /></NavLink>
   <img className="weeb-logo" src="https://i.imgur.com/rb1dKK8.png" style={{ height: "20rem", width: "auto",marginTop:"4rem",opacity:closeClick?"0":"1" }} />
 </div>
 
