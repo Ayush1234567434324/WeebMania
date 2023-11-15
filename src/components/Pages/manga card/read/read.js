@@ -82,36 +82,36 @@ export default function Read() {
 
           <div className="details">
 
-            <div className="author">
-              <table>
+          <div className="author">
+  <table>
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{data.title}</td>
+      </tr>
+      <tr>
+        <td>Author</td>
+        <td>{data.artist}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>{data.status}</td>
+      </tr>
+      <tr>
+        <td>Genre(s)</td>
+        <td>
+          {data.genre.map((genre, index) => (
+            <span key={index}>
+              {genre}
+              {index !== data.genre.length - 1 && " "} {/* Add space if not the last element */}
+            </span>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-                <tr>
-                  <td>Name</td>
-                  <td>{data.title}</td>
-                </tr>
-                <tr>
-                  <td>Author</td>
-                  <td>{data.artist}</td>
-                </tr>
-                <tr>
-                  <td>Status</td>
-                  <td>{data.status}</td>
-                </tr>
-                <tr>
-                  <td>Genre(s)</td>
-                  <td>
-  {data.genre.map((genre, index) => (
-    <span key={index}>
-      {genre}
-      {index !== data.genre.length - 1 && " "} {/* Add space if not the last element */}
-    </span>
-  ))}
-</td>
-
-
-                </tr>
-              </table>
-            </div>
 
 
             <div className="status">

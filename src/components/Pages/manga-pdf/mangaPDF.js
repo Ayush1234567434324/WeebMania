@@ -1,93 +1,82 @@
-import React, { useState,useEffect} from 'react';
-import { Document, Page, pdfjs,Thumbnail } from "react-pdf";
-import HTMLFlipBook from 'react-pageflip';
-import bg from './background.jpg'
+import React, { useState, useEffect } from 'react';
+import bg from './background.jpg';
+import { Document, Page, pdfjs } from 'react-pdf';
 import { useLocation } from 'react-router-dom';
-import './mangaPDF.css'
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import Merger from './merge/merger';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import HTMLFlipBook from 'react-pageflip';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+// ... other imports and code
 
 function GoogleDrivePDF() {
   const location = useLocation();
   const stateFromLink = location.state;
-
-
-  const divStyle = {
-  
-    width:'960px',
-    marginBottom:'8rem'
-   
-   
-    
-    
-    
-  };
-  
-
-
-
-  const [data, setdata] = useState([]);
+  const handle = useFullScreenHandle();
+  const [ids, setIds] = useState([]);
+  const [numPages, setNumPages] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://universe-tau.vercel.app/api/check");
+        const response = await fetch('https://universe-tau.vercel.app/api/check');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const responseData = await response.json();
         console.log(responseData);
-  
-        // Extracting the 'id' property from each element in data.files
-        const extractedIds = responseData.files.map(file => file.id);
-  
-        // Updating the state with the extracted ids
-        setdata(extractedIds);
+
+        const extractedIds = responseData.files.map((file) => file.id);
+        setIds(extractedIds);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     fetchData();
   }, []);
+  
+  const [pageNumber, setPageNumber] = useState(1);
 
-  const handle = useFullScreenHandle();
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
 
-
-            setTimeout(function () {
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-            }, 20);
-   
-
+  const pages = Array.from({ length: numPages }, (_, index) => (
+    <Page key={index} pageNumber={pageNumber + index} renderAnnotationLayer={0} height={700} />
+  ));
 
 
-          
 
   return (
-
-//http://localhost:8000
-   //1_EFbSpVRrZAovuQ7lPf87vNUjZeW-o72
-   //https://universe-tau.vercel.app/pdf/${pageData}
     <div>
-
-         <div style={{position:'absolute',top:'10rem',right:'2rem'}}>
-          <img height='40px' src='fullscreen.svg' onClick={handle.enter} class="hoverable"/>
-      
+      <div style={{ position: 'absolute', top: '10rem', right: '2rem' }}>
+        <img height="40px" src="fullscreen.svg" onClick={handle.enter} className="hoverable" />
       </div>
       <FullScreen handle={handle}>
-       
-    <div style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',height:'800px',marginTop:'8%', background:handle.active?`url(${bg})`:'transparent'}}>
-    <div style={divStyle}>
-    
-      <Merger ids={data}/>
-      </div>
-      </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '800px',
+            marginTop: '5%',
+            background: handle.active ? `url(${bg})` : 'transparent',
+          }}
+        >
+        <HTMLFlipBook width={500} height={733} minWidth={315} maxWidth={500} minHeight={1000} maxHeight={1533} maxShadowOpacity={0.5} showCover={true} mobileScrollSupport={true}>
+  {ids.slice(0, 50).map((id, index) => (
+    <div className="demoPage" key={index}>
+      <Document file={`https://universe-tau.vercel.app/pdf/${id}`} onLoadSuccess={onDocumentLoadSuccess}>
+        <Page pageNumber={1} renderAnnotationLayer={false} height={700} />
+      </Document>
+    </div>
+  ))}
+</HTMLFlipBook>
+
+        </div>
       </FullScreen>
-      </div>
+    </div>
   );
 }
 

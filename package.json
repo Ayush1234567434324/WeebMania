@@ -16,6 +16,7 @@
     "gapi": "^0.0.3",
     "googleapis": "^128.0.0",
     "pdf-merger-js": "^4.3.0",
+    "pdfjs": "^2.5.2",
     "pdfjs-dist": "^3.11.174",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

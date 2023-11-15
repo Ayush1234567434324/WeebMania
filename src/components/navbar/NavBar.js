@@ -37,9 +37,9 @@ function NavBar() {
 
   return (
     <>
-      <nav  className={`navbar ${visible ? 'visible' : 'hidden'}`}>
-        <div className="nav-container">
-          <div  className="nav-logo" >
+      <nav  className={`navbar ${visible ? 'visible' : 'hidden'}`} >
+        <div className="nav-container" style={{overflow:'hidden'}} >
+          <div  className="nav-logo"  >
           <div style={{ display: "flex"}}>
   <NavLink exact to="/" ><img className="vegeta-logo" src="https://i.imgur.com/hCtqhTz.png" style={{ height: "8rem", width: "auto",marginTop:"7.8rem" }} /></NavLink>
   <img className="weeb-logo" src="https://i.imgur.com/rb1dKK8.png" style={{ height: "20rem", width: "auto",marginTop:"4rem",opacity:closeClick?"0":"1" }} />
