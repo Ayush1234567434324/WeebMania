@@ -1,19 +1,16 @@
 import React, { useState,useEffect} from 'react';
-import { Document, Page, pdfjs } from "react-pdf";
+import { Document, Page, pdfjs,Thumbnail } from "react-pdf";
 import HTMLFlipBook from 'react-pageflip';
 import bg from './background.jpg'
 import { useLocation } from 'react-router-dom';
 import './mangaPDF.css'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import Merger from './merge/merger';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-function GoogleDrivePDF(props) {
+function GoogleDrivePDF() {
   const location = useLocation();
   const stateFromLink = location.state;
-
-
- 
-
 
 
   const divStyle = {
@@ -30,41 +27,33 @@ function GoogleDrivePDF(props) {
 
 
 
-  const handle = useFullScreenHandle();
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://universe-tau.vercel.app/api/check");
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const responseData = await response.json();
+        console.log(responseData);
   
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-    console.log(numPages)
-  }
-   
-  const pages = Array.from({ length: numPages }, (_, index) => (
-    
-    <div className="demoPage" key={index} >
-      
-      <Page 
-           
-         
-             pageNumber={pageNumber + index}  renderAnnotationLayer={0}   height={700} />
+        // Extracting the 'id' property from each element in data.files
+        const extractedIds = responseData.files.map(file => file.id);
+  
+        // Updating the state with the extracted ids
+        setdata(extractedIds);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
 
-    </div>
-    
+  const handle = useFullScreenHandle();
 
-  ));
-
- 
-
-/* width={550}
-            height={733}
-            size=&quot;stretch&quot;
-            minWidth={315}
-            maxWidth={1000}
-            minHeight={400}
-            maxHeight={1533}
-            maxShadowOpacity={0.5}
-            showCover={true}
-            mobileScrollSupport={true} */
 
             setTimeout(function () {
               window.scrollTo({
@@ -72,12 +61,17 @@ function GoogleDrivePDF(props) {
                 behavior: 'smooth'
               });
             }, 20);
-            
+   
+
+
+
           
 
   return (
 
-
+//http://localhost:8000
+   //1_EFbSpVRrZAovuQ7lPf87vNUjZeW-o72
+   //https://universe-tau.vercel.app/pdf/${pageData}
     <div>
 
          <div style={{position:'absolute',top:'10rem',right:'2rem'}}>
@@ -88,30 +82,8 @@ function GoogleDrivePDF(props) {
        
     <div style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',height:'800px',marginTop:'8%', background:handle.active?`url(${bg})`:'transparent'}}>
     <div style={divStyle}>
-      
-      <Document file={`https://universe-tau.vercel.app/pdf/${stateFromLink}`} onLoadSuccess={onDocumentLoadSuccess}>
-     
-        <HTMLFlipBook 
-     width={550}
-     height={733}
-     size="stretch"
-     minWidth={315}
-     maxWidth={1000}
-     minHeight={400}
-     maxHeight={1533}
-         
-            maxShadowOpacity={0.5}
-            showCover={true}
-            mobileScrollSupport={true}
-            
-            
-            
-        className='demo-book'
-            >
-              
-        {pages}
-        </HTMLFlipBook>
-      </Document>
+    
+      <Merger ids={data}/>
       </div>
       </div>
       </FullScreen>
