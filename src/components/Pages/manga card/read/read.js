@@ -48,6 +48,20 @@ export default function Read() {
 
   // The rest of your component logic
  
+console.log(data)
+
+
+
+
+
+
+
+
+
+
+
+
+
   setTimeout(function () {
     window.scrollTo({
       top: 0,
@@ -169,7 +183,7 @@ export default function Read() {
       {data.url.map((item, index) => (
   <tr key={index}>
     <NavLink to='/test' state={item}>
-      Chapter {data.url.length - index}
+      Chapter {index+1}
     </NavLink>
   </tr>
 ))}
