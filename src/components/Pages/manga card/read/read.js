@@ -182,9 +182,10 @@ console.log(data)
       <tbody>
       {data.url.map((item, index) => (
   <tr key={index}>
-    <NavLink to='/test' state={item}>
-      Chapter {index+1}
-    </NavLink>
+ <NavLink to='/test' state={{ item: item, pages: data.page }}>
+  Chapter {index + 1}
+</NavLink>
+
   </tr>
 ))}
       </tbody>
