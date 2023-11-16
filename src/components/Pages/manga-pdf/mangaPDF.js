@@ -122,7 +122,7 @@ const mainpages = finalpages.map((page, index) => {
 
 
 
-const [see,setsee] = useState(0);
+const [see,setsee] = useState(1);
 const mangabook = ()=>
 {
      setsee(!see);
