@@ -56,10 +56,24 @@ const mangabook = ()=>
     setNumPages(numPages);
   }
 
+
+  const getValueBasedOnWidth = (width) => {
+    if (width > 1000) {
+      return 100;
+    } else if (width > 900) {
+      return 50;
+    } else if (width > 800) {
+      return 20;
+    } else if (width > 700) {
+      return 10;
+    } else {
+      return 0;
+    }
+  };
   const pages = responseData.map((id, index) => (
     <div className="demoPage page-con" key={index+2} >
       <Document file={`https://universe-tau.vercel.app/pdf/${id}`} onLoadSuccess={onDocumentLoadSuccess} loading={<Loading/>}>
-        <Page pageNumber={1} renderAnnotationLayer={false}  renderTextLayer={false} height={see?700:window.innerHeight} width={see?480:window.innerWidth-100} />
+        <Page pageNumber={1} renderAnnotationLayer={false}  renderTextLayer={false} height={see?700:window.innerHeight} width={see?480:window.innerWidth-getValueBasedOnWidth(window.innerWidth)} />
       </Document>
     </div>
     
