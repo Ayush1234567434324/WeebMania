@@ -179,10 +179,10 @@ console.log(data)
         <div className='chapter-content'>
 <div className='h4 summary' style={{width:'100px'}}>Chapter</div>
 <table className="fixed_header" style={{ background: "rgb(8 17 29)", borderRadius: '10px', boxShadow: '0 2px 5px rgb(0 0 0 / 50%)' }}>
-      <tbody>
+      <tbody style={{display:'flex' , gap:'10px',flexDirection:'column'}}>
       {data.url.map((item, index) => (
-  <tr key={index}>
- <NavLink to='/test' state={{ item: item, pages: data.page }}>
+  <tr key={index} className="hoverable">
+ <NavLink to='/test' state={{ item: item, pages: data.page }} style={{outline:'none',textDecoration:'none' , color:'white'}}>
   Chapter {index + 1}
 </NavLink>
 
