@@ -28,7 +28,7 @@ useEffect(() => {
 
   if (cookieValue) {
     const data = JSON.parse(decodeURIComponent(cookieValue));
-    console.log(data);
+    
     setx(1);
   } else {
     setx(2);

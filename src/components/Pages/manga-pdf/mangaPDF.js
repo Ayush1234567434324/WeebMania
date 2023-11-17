@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import HTMLFlipBook from 'react-pageflip';
 import './mangaPDF.css'
+import Loading from '../../loading';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
@@ -20,7 +21,6 @@ function GoogleDrivePDF() {
   const location = useLocation();
   const stateFromLink = location.state.item;
   const pagecover = location.state.pages;
-  console.log(pagecover)
   const handle = useFullScreenHandle();
 
   const [numPages, setNumPages] = useState(null);
@@ -58,7 +58,7 @@ const mangabook = ()=>
 
   const pages = responseData.map((id, index) => (
     <div className="demoPage page-con" key={index+2} >
-      <Document file={`https://universe-tau.vercel.app/pdf/${id}`} onLoadSuccess={onDocumentLoadSuccess}>
+      <Document file={`https://universe-tau.vercel.app/pdf/${id}`} onLoadSuccess={onDocumentLoadSuccess} loading={<Loading/>}>
         <Page pageNumber={1} renderAnnotationLayer={false}  renderTextLayer={false} height={see?700:window.innerHeight} width={see?480:window.innerWidth} />
       </Document>
     </div>
@@ -80,7 +80,7 @@ const mangabook = ()=>
 const pagesextra = <div className="demoPage page-cover1" key={1} >
  <div className="page" style={{display:'flex' , justifyContent:'center',height:'100%'}}  >
         <div className="page-content" style={{justifyContent:'center',display:'flex',flexDirection:'column'}}>
-          <img className="page-img" src='https://w0.peakpx.com/wallpaper/675/575/HD-wallpaper-ichigo-hollow-mask-bleach-hollow-ichigo-mask.jpg'  height={460} width={400} />
+          <img className="page-img" src='https://i.imgur.com/QiZeZgc.jpg'  height={460} width={400} />
            <div></div>
         </div>
         
@@ -123,6 +123,8 @@ const mainpages = finalpages1.map((page, index) => {
     style: {
       display: 'flex',
       justifyContent:'center',
+      background:'transparent',
+      boxShadow:'none',
       ...page.props.style,
     },
   });
@@ -162,6 +164,7 @@ style={{
   height: '800px',
   marginTop: '5%',
   background: handle.active ? `url(${bg})` : 'transparent',
+  backgroundSize:'contain'
 }}
 >
 <HTMLFlipBook
@@ -187,14 +190,16 @@ const casual =   <div style={{ display: 'flex', flexDirection: 'column', justify
 </div>
 
   return (
-    <div>
-     
+    <div>  
   <div style={{ position: 'absolute', top: '10rem', right: '2rem' }}>
     <img height="40px" src="fullscreen.svg" onClick={handle.enter} className="hoverable" alt="fullscreen" />
   </div>
  <div style={{ position: 'absolute', top: '10rem', right: '12rem' }}>
   <button  onClick={mangabook}>{see?'Book':'Normal'}</button>
  </div>
+ <div className="font-heading" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom:'5rem' }}>
+        <h1 className="h4">{stateFromLink.discription}</h1>
+      </div>
   <FullScreen handle={handle}  >
     {handle.active && (
         see?book:casual

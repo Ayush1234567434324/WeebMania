@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loading from "../../loading";
 import Cards from "./cards/cards";
 import './manga-page.css'
 
@@ -28,14 +29,14 @@ export const Mangapage = () => {
       });
   }, []);
 
-console.log(mangaData)
+
 
 
   
 
   return (
     
-     <>
+    mangaData!==null? <>
       <div className="manga-cards container " >
       <div class="font-heading">
 <h1 class="h4">LATEST RELEASES</h1>
@@ -57,6 +58,6 @@ console.log(mangaData)
           ))}
         </div>
       </div>
-      </>
+      </>:<Loading></Loading>
   );
 };
