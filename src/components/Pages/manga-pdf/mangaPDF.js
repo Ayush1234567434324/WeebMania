@@ -59,7 +59,7 @@ const mangabook = ()=>
   const pages = responseData.map((id, index) => (
     <div className="demoPage page-con" key={index+2} >
       <Document file={`https://universe-tau.vercel.app/pdf/${id}`} onLoadSuccess={onDocumentLoadSuccess} loading={<Loading/>}>
-        <Page pageNumber={1} renderAnnotationLayer={false}  renderTextLayer={false} height={see?700:window.innerHeight} width={see?480:window.innerWidth} />
+        <Page pageNumber={1} renderAnnotationLayer={false}  renderTextLayer={false} height={see?700:window.innerHeight} width={see?480:window.innerWidth-100} />
       </Document>
     </div>
     
@@ -185,7 +185,7 @@ style={{
 </HTMLFlipBook>
 </div>
 
-const casual =   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center', marginTop: '8rem',gap:'100px' }}>
+const casual =   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center', marginTop: '8rem',gap:'10px' }}>
 {mainpages}
 </div>
 
