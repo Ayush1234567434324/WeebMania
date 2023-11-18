@@ -84,7 +84,7 @@ const Chat = (props) => {
     // Set up interval to call mangaread every 20 seconds
     const intervalId = setInterval(() => {
       mangaread({ mangaId, urlId });
-    }, 20); // 20 seconds in milliseconds
+    }, 2); 
 
     // Clean up the interval when the component is unmounted
     return () => clearInterval(intervalId);
