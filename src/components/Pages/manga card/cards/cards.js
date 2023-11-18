@@ -19,7 +19,7 @@ export default function Cards(props) {
 
 
 
-  console.log(props.data)
+
   const to = `/${formattedTitle}/read`
   return (
     <div className='card-container-top' style={{ width: "175px", borderRadius: "50px", outline: "none", border: "none", height: "238px" }} >

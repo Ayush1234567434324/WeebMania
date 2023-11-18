@@ -6,7 +6,9 @@ const Chat = (props) => {
   const handleInputChange = (e) => {
     setChatText(e.target.value);
   };
- 
+  const mangaId = props.mangaid; // Replace with the actual manga ID
+  const urlId = props.urlid; // Replace with the actual URL ID
+  const manganame = props.manganame;
   function mangaread({mangaId,urlId})
   {
     const apiUrl = `https://universe-tau.vercel.app/api/manga`;
@@ -42,9 +44,7 @@ const Chat = (props) => {
     
   }
 
-  const mangaId = props.mangaid; // Replace with the actual manga ID
-  const urlId = props.urlid; // Replace with the actual URL ID
-  const manganame = props.manganame;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   

@@ -207,7 +207,7 @@ const casual =   <div style={{ display: 'flex', flexDirection: 'column', justify
  <div style={{ position: 'absolute', top: '10rem', right: '12rem' }}>
   <button  onClick={mangabook}>{see?'Book':'Normal'}</button>
  </div>
- <div className="font-heading" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom:'5rem' }}>
+ <div className="font-heading" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom:'10rem' }}>
         <h1 className="h4">{stateFromLink.discription}</h1>
       </div>
   <FullScreen handle={handle}  >
