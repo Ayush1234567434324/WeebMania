@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 
 const Chat = (props) => {
   const [chatText, setChatText] = useState('');
@@ -77,10 +77,18 @@ const Chat = (props) => {
     setChatText('');
   };
 
-const reload = ()=>
-{
-     mangaread({mangaId,urlId});
-}
+  useEffect(() => {
+    // Initial call
+    mangaread({ mangaId, urlId });
+
+    // Set up interval to call mangaread every 20 seconds
+    const intervalId = setInterval(() => {
+      mangaread({ mangaId, urlId });
+    }, 20000); // 20 seconds in milliseconds
+
+    // Clean up the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
 
 
 
@@ -111,8 +119,6 @@ const reload = ()=>
           </div>
         </form>
       </div>
-      <div className='container'><button onClick={reload} >Reload</button></div>
-  
       <div style={{marginTop:'10rem'}}>
         {chat.map((message, index) => (
           <div key={index} className="chat-container" style={{background:message.email===props.data.message.email?'black':'white'}}>
