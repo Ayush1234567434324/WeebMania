@@ -203,7 +203,7 @@ const LoginSignup = () => {
         )}
       </div>
 
-      <div className="submit-container my-3">
+      <div className="submit-container my-3" style={{marginTop:'30px'}}>
         <div className= {action === "Login" ? "submit gray" : "submit"} style={action === "Login" ? { position: 'absolute', top: '10px', right: '10px' } : {}} onClick={handleSignUp}>Sign Up</div>
         <div className=  {action === "Sign Up" ? "submit gray" : "submit"} style={action === "Sign Up" ? { position: 'absolute', top: '10px', right: '10px' } : {}} onClick={handleLogin}>Login</div>
       </div>

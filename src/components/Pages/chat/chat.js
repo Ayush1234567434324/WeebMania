@@ -33,12 +33,12 @@ const Chat = (props) => {
           console.log(chatinfo)
           setchat(chatinfo.chat);
         } else {
-          console.error(`Manga with ID ${mangaId} not found`);
+          console.log(`Manga with ID ${mangaId} not found`);
         }
       })
       .catch((error) => {
         // Handle errors
-        console.error('Error:', error);
+        console.log('Error:', error);
       });
     
     
@@ -84,7 +84,7 @@ const Chat = (props) => {
     // Set up interval to call mangaread every 20 seconds
     const intervalId = setInterval(() => {
       mangaread({ mangaId, urlId });
-    }, 2); 
+    }, 2000); 
 
     // Clean up the interval when the component is unmounted
     return () => clearInterval(intervalId);
