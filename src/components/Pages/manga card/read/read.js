@@ -1,5 +1,6 @@
 import React,{useEffect,useState } from 'react'
 import { NavLink, useLocation} from 'react-router-dom';
+import Error from '../../../Error/error';
 
 import './read.css'
 
@@ -16,43 +17,37 @@ export default function Read() {
   .replace(/_/g, ''); 
  
   const existingData = location.state ? location.state.info : null;
-  const [data, setData] = useState(existingData);
+  const [data,setData] = useState(existingData);
   
-  const apiUrl = `https://universe-tau.vercel.app/api/${firstPartOfPath}/manga`;
-  useEffect(() => {
-    if (data === null || data === undefined) {
-      // Data is null or undefined, so fetch it from the API
-    
-      fetch(apiUrl)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((newData) => {
-          // Update the state with the fetched data
-          setData(newData);
-        })
-        .catch((error) => {
-          // Handle errors
-          console.error('Error:', error);
-        });
-    }
+
+
+const apiUrl = `https://universe-tau.vercel.app/api/${firstPartOfPath}/manga`;
+useEffect(() => {
+  if (data === null || data === undefined) {
+    // Data is null or undefined, so fetch it from the API
   
- 
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((newData) => {
+        // Update the state with the fetched data
+        setData(newData);
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error('Error:', error);
+      });
+  }
 
 
 
-  }, [data]); // Add data as a dependency to prevent multiple API requests
-
-  // The rest of your component logic
- 
 
 
-
-
-
+}, [data]);
 
 
 
@@ -74,6 +69,8 @@ export default function Read() {
    
  
   return (
+
+    data!==null?
     <>
    {data? 
     <div className="bg">
@@ -195,7 +192,7 @@ export default function Read() {
 
     </div>:null}
     
-   </>
+   </>:<Error/>
   )
 }
 /* <div className="btn">

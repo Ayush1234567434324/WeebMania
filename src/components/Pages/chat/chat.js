@@ -7,16 +7,50 @@ const Chat = (props) => {
     setChatText(e.target.value);
   };
  
-  
+  function mangaread({mangaId,urlId})
+  {
+    const apiUrl = `https://universe-tau.vercel.app/api/manga`;
 
+    // Assuming mangaId is the ID you want to search for
+   
+    
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((newData) => {
+        // Find the manga with the specified ID
+        const mangaWithId = newData.find((manga) => manga._id === mangaId);
+    
+        if (mangaWithId) {
+          // Update the state with the manga data
+          const chatinfo = mangaWithId.url.find((url) => url._id === urlId);
+          console.log(chatinfo)
+          setchat(chatinfo.chat);
+        } else {
+          console.error(`Manga with ID ${mangaId} not found`);
+        }
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error('Error:', error);
+      });
+    
+    
+  }
+
+  const mangaId = props.mangaid; // Replace with the actual manga ID
+  const urlId = props.urlid; // Replace with the actual URL ID
+  const manganame = props.manganame;
   const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
-      const mangaId = props.mangaid; // Replace with the actual manga ID
-      const urlId = props.urlid; // Replace with the actual URL ID
-      const manganame = props.manganame;
-      console.log(manganame);
+   
+    
       const response = await fetch(`https://universe-tau.vercel.app/api/manga/${mangaId}/url/${urlId}/chat`, {
         method: 'POST',
         headers: {
@@ -27,38 +61,8 @@ const Chat = (props) => {
   
       if (response.ok) {
         
-        const apiUrl = `https://universe-tau.vercel.app/api/manga`;
-
-        // Assuming mangaId is the ID you want to search for
-       
-        
-        fetch(apiUrl)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then((newData) => {
-            // Find the manga with the specified ID
-            const mangaWithId = newData.find((manga) => manga._id === mangaId);
-        
-            if (mangaWithId) {
-              // Update the state with the manga data
-              const chatinfo = mangaWithId.url.find((url) => url._id === urlId);
-              console.log(chatinfo)
-              setchat(chatinfo.chat);
-            } else {
-              console.error(`Manga with ID ${mangaId} not found`);
-            }
-          })
-          .catch((error) => {
-            // Handle errors
-            console.error('Error:', error);
-          });
-        
-        
-
+      
+        mangaread({mangaId,urlId});
     
         
       } else {
@@ -73,7 +77,10 @@ const Chat = (props) => {
     setChatText('');
   };
 
-
+const reload = ()=>
+{
+     mangaread({mangaId,urlId});
+}
 
 
 
@@ -104,6 +111,8 @@ const Chat = (props) => {
           </div>
         </form>
       </div>
+      <div className='container'><button onClick={reload} >Reload</button></div>
+  
       <div style={{marginTop:'10rem'}}>
         {chat.map((message, index) => (
           <div key={index} className="chat-container" style={{background:message.email===props.data.message.email?'black':'white'}}>
