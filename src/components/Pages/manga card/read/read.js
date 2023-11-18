@@ -8,13 +8,13 @@ export default function Read() {
   const location = useLocation();
    
   const pathParts =   window.location.href;
-  console.log(pathParts)
+ 
   const Part = pathParts.split('/')
   const firstPartOfPath = location.pathname.split('/')[1]
   .replace(/%20/g, '') // Replace space (URL-encoded as %20)
   .replace(/-/g, '')   // Replace hyphens
   .replace(/_/g, ''); 
-  console.log(firstPartOfPath)
+ 
   const existingData = location.state ? location.state.info : null;
   const [data, setData] = useState(existingData);
   
@@ -48,7 +48,7 @@ export default function Read() {
 
   // The rest of your component logic
  
-console.log(data)
+
 
 
 
@@ -182,7 +182,7 @@ console.log(data)
       <tbody style={{display:'flex' , gap:'10px',flexDirection:'column'}}>
       {data.url.map((item, index) => (
   <tr key={index} className="hoverable">
- <NavLink to='/test' state={{ item: item, pages: data.page }} style={{outline:'none',textDecoration:'none' , color:'white'}}>
+ <NavLink to='/test' state={{ item: item, pages: data.page,info:data._id,manganame:firstPartOfPath }} style={{outline:'none',textDecoration:'none' , color:'white'}}>
   Chapter {index + 1}
 </NavLink>
 

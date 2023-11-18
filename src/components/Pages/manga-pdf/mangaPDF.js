@@ -6,21 +6,17 @@ import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import HTMLFlipBook from 'react-pageflip';
 import './mangaPDF.css'
 import Loading from '../../loading';
+import Chat from '../chat/chat';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
 
-
-
-
-
-
-
-
-function GoogleDrivePDF() {
+function GoogleDrivePDF(props) {
   const location = useLocation();
   const stateFromLink = location.state.item;
   const pagecover = location.state.pages;
+  const mangaid = location.state.info;
+  const manganame = location.state.manganame;
   const handle = useFullScreenHandle();
 
   const [numPages, setNumPages] = useState(null);
@@ -225,6 +221,10 @@ const casual =   <div style={{ display: 'flex', flexDirection: 'column', justify
   
       {  see?book:casual
     }
+          <div  style={{marginLeft:'3rem',marginTop:'15rem'}}>
+<h1  style={{textAlign:'center',color:'white',borderBottom:'2px solid #eb3349' ,width:'200px'}}>Discussion</h1>
+</div>
+<Chat mangaid={mangaid} urlid={stateFromLink._id} chat={stateFromLink.chat}  data={props.data} manganame={manganame}/>
 </div>
 
     

@@ -17,7 +17,7 @@ import LoginSignup from "./components/Login-Signup/LoginSignup";
 function App() {
 
 const [x,setx]=useState(0)
-
+const [data,setdata] = useState('');
 
 
 useEffect(() => {
@@ -26,9 +26,11 @@ useEffect(() => {
     .find(row => row.startsWith('userInfo='))
     ?.split('=')[1];
 
+  
+
   if (cookieValue) {
     const data = JSON.parse(decodeURIComponent(cookieValue));
-    
+    setdata(data);
     setx(1);
   } else {
     setx(2);
@@ -60,7 +62,7 @@ return (
             <Route path="/blog" element={<Blog />} />
             <Route path="/genre" element={<Genre />} />
             <Route path="/:title/read" element={<Read />} />
-            <Route path='/test' element={<GoogleDrivePDF/>}></Route>
+            <Route path='/test' element={<GoogleDrivePDF data={data} />}></Route>
           </Routes>
         </div>
         <div style={{ marginTop: '20rem' }}></div>

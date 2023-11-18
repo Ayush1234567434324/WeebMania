@@ -42,6 +42,43 @@ body {
   width: 5px; /* Width of the scrollbar */
 }
 
+
+.chat-container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 95%;
+  margin-left:2%;
+}
+
+.chat-darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.chat-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.chat-container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.chat-container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
