@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.2",
     "font": "^0.0.4",
     "font-awesome": "^4.7.0",
+    "fuse.js": "^7.0.0",
     "gapi": "^0.0.3",
     "googleapis": "^128.0.0",
     "pdf-merger-js": "^4.3.0",

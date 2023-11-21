@@ -29,6 +29,31 @@ function NavBar() {
     };
   }, [prevScrollPos]);
 
+  
+// Inside your functional component
+const [searchTerm, setSearchTerm] = useState('');
+const [searchResults, setSearchResults] = useState([]);
+const handleInputChange = (e) => {
+  setSearchTerm(e.target.value);
+};
+
+const handleSearch = async (searchTerm) => {
+  try {
+    const response = await fetch(`https://universe-tau.vercel.app/api/manga`);
+    const data = await response.json();
+
+    // Assuming the API returns an array of objects with a 'name' property
+    const filteredResults = data.filter(item =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setSearchResults(filteredResults);
+    console.log(searchResults)
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
 
 
 
@@ -99,13 +124,32 @@ function NavBar() {
             <i className={click ? "fa fa-times" : "fa fa-bars"} onClick={handlecloseClick}></i>
           </div>
         </div>
-        <li> <div className="searchBox" style={window.innerWidth <= 960 ? click? { top: 0 } : { top: '50px' }:{ top: '50px' }}>
+        <li>
+      <div
+        className="searchBox"
+        style={
+          window.innerWidth <= 960
+            ? click
+              ? { top: 0 }
+              : { top: '50px' }
+            : { top: '50px' }
+        }
+      >
 
-<input className="searchInput"type="text" name="" placeholder="Search"/>
-<button className="searchButton" href="#">
-<i className="fa fa-search" ></i>
+<input
+  className="searchInput"
+  type="text"
+  name=""
+  placeholder="Search"
+  value={searchTerm}
+  onChange={handleInputChange}
+/>
+<button className="searchButton" onClick={handleSearch}>
+  <i className="fa fa-search"></i>
 </button>
-</div></li>
+
+      </div>
+    </li>
       </nav>
     </>
   );
