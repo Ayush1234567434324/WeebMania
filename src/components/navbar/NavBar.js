@@ -104,7 +104,7 @@ const handleSearch = async (searchTerm) => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Blog
+                MY PDF
               </NavLink>
             </li>
             <li className="nav-item">

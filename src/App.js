@@ -59,7 +59,7 @@ return (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog" element={<Blog/>} />
             <Route path="/genre" element={<Genre />} />
             <Route path="/:title/read" element={<Read />} />
             <Route path='/test' element={<GoogleDrivePDF data={data} />}></Route>
