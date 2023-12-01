@@ -52,7 +52,7 @@ export const Blog = () => {
       <input
         type="file"
         id="pdfUpload"
-        accept=".pdf"
+        accept=".pdf , .cbz"
         onChange={handleFileChange}
       />
 
